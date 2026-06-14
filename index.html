@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1a0a00" />
+  <title>Shravan weds Shreya ✨</title>
+
+  <!-- Open Graph for WhatsApp preview -->
+  <meta property="og:title" content="You're Invited! Shravan weds Shreya 🌸" />
+  <meta property="og:description" content="Join us to celebrate our wedding. Open to place our mantapa in your room in AR!" />
+  <meta property="og:image" content="/img/og-preview.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+
+  <!-- ── SPLASH SCREEN ── -->
+  <div id="splash">
+    <div class="splash-bg"></div>
+    <div class="splash-content">
+      <div class="diya-icon">🪔</div>
+      <h1 class="splash-title">
+        <span class="name-bride">Shreya</span>
+        <span class="weds">&amp;</span>
+        <span class="name-groom">Shravan</span>
+      </h1>
+      <p class="splash-sub">Request the honour of your presence</p>
+      <div class="mandala-divider">❋ ✦ ❋</div>
+      <button id="btn-begin" class="btn-primary">
+        <span>Begin the Experience</span>
+        <span class="btn-sparkle">✨</span>
+      </button>
+      <p class="camera-note">📷 Tap “View in AR” to place our mantapa in your room</p>
+    </div>
+  </div>
+
+  <!-- ── 3D / AR LAYER ── -->
+  <div id="app" class="hidden">
+    <model-viewer
+      id="mv"
+      src="/models/scene.glb?v=3"
+      ios-src="/models/scene.usdz?v=3"
+      alt="Shreya & Shravan's wedding mantapa"
+      loading="eager"
+      reveal="auto"
+      autoplay
+      animation-name="Welcome"
+      ar
+      ar-modes="scene-viewer webxr quick-look"
+      ar-scale="auto"
+      ar-placement="floor"
+      camera-controls
+      touch-action="pan-y"
+      auto-rotate
+      auto-rotate-delay="800"
+      rotation-per-second="18deg"
+      interaction-prompt="auto"
+      shadow-intensity="1.1"
+      shadow-softness="0.9"
+      exposure="1.05"
+      environment-image="neutral"
+      camera-orbit="0deg 74deg 9m"
+      camera-target="0m 1.3m 0.2m"
+      min-camera-orbit="auto 18deg 1m"
+      max-camera-orbit="auto 100deg 16m"
+      interpolation-decay="160"
+      field-of-view="36deg">
+
+      <!-- Custom AR button -->
+      <button id="btn-ar" slot="ar-button" class="btn-ar">
+        📲 View in Your Room (AR)
+      </button>
+
+      <!-- Loading poster -->
+      <div id="mv-progress" slot="progress-bar" class="mv-progress">
+        <div class="mv-progress-inner"></div>
+      </div>
+    </model-viewer>
+
+    <!-- Top banner -->
+    <div id="top-banner" class="top-banner">
+      <span>🙏 Namaskara! Spin to look around · Tap “View in Your Room” for AR</span>
+    </div>
+
+    <!-- Bottom action bar: guided camera tour -->
+    <div class="action-bar">
+      <div class="tour-bar" id="tour-bar">
+        <button class="tour-btn" data-view="couple">👰 Couple</button>
+        <button class="tour-btn" data-view="inside">🚪 Step Inside</button>
+        <button class="tour-btn" data-view="invite">💌 Invitation</button>
+        <button class="tour-btn active" data-view="full">🔭 Full View</button>
+      </div>
+      <button id="btn-invite" class="btn-gold details-btn">Details &amp; RSVP 💌</button>
+    </div>
+  </div>
+
+  <!-- ── INVITATION CARD ── -->
+  <div id="invitation-card" class="hidden">
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="om-symbol">ॐ</div>
+        <p class="invite-line">With the blessings of our families</p>
+        <h1 class="card-names">
+          <span>Shreya</span>
+          <span class="card-weds">weds</span>
+          <span>Shravan</span>
+        </h1>
+        <div class="floral-divider">🌸 ——— 🌸</div>
+      </div>
+
+      <div class="card-body">
+        <div class="card-detail-block">
+          <div class="detail-icon">📅</div>
+          <div>
+            <div class="detail-label">Wedding Date</div>
+            <div class="detail-value">Sunday, 15th February 2026</div>
+          </div>
+        </div>
+
+        <div class="card-detail-block">
+          <div class="detail-icon">⏰</div>
+          <div>
+            <div class="detail-label">Muhurtham</div>
+            <div class="detail-value">11:00 AM — 1:00 PM</div>
+          </div>
+        </div>
+
+        <div class="card-detail-block">
+          <div class="detail-icon">📍</div>
+          <div>
+            <div class="detail-label">Venue</div>
+            <div class="detail-value">Sri Kalyana Mandapa<br/>Bangalore, Karnataka</div>
+          </div>
+        </div>
+
+        <div class="card-detail-block">
+          <div class="detail-icon">🎊</div>
+          <div>
+            <div class="detail-label">Reception</div>
+            <div class="detail-value">15th Feb 2026 · 7:00 PM</div>
+          </div>
+        </div>
+
+        <div class="card-detail-block">
+          <div class="detail-icon">👗</div>
+          <div>
+            <div class="detail-label">Dress Code</div>
+            <div class="detail-value">Ethnic / Traditional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="floral-divider">❋ ✦ ❋</div>
+        <p class="family-note">
+          From the families of<br/>
+          <strong>Acharya Family</strong> &amp; <strong>Shravan Family</strong>
+        </p>
+        <p class="hashtag">#ShreyaWedsShravan 💛</p>
+        <button id="btn-rsvp" class="btn-rsvp">RSVP · Share Blessings 🙏</button>
+        <button id="btn-back-ar" class="btn-back">← Back to 3D View</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
