@@ -28,6 +28,9 @@ function saveAssetPlugin() {
 }
 
 export default defineConfig({
+  // Relative base so the built site works whether served from the domain root
+  // or a GitHub Pages project subpath (bitmos.github.io/WeddingInvitationAR/).
+  base: './',
   plugins: [saveAssetPlugin()],
   server: {
     https: false,
