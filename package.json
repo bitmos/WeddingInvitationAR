@@ -8,6 +8,7 @@
     "preview": "vite preview --host"
   },
   "dependencies": {
+    "@google/model-viewer": "^4.3.1",
     "three": "^0.170.0"
   },
   "devDependencies": {
